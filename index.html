@@ -1,923 +1,611 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StreamVibe | Premium IPTV Service</title>
-  <meta name="description" content="StreamVibe offers premium IPTV with 20,000+ channels, movies, and series in 4K/8K. Start your free trial today!">
-  <meta name="keywords" content="IPTV, streaming, live TV, movies, sports, StreamVibe">
-  <meta property="og:title" content="StreamVibe - Your Ultimate IPTV Solution">
-  <meta property="og:description" content="Watch 20,000+ channels and on-demand content with StreamVibe. Compatible with Smart TVs, Android, iOS, and more.">
-  <meta property="og:image" content="/assets/og-image.jpg">
-  <meta property="og:url" content="https://streamvibe.com">
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&family=Roboto+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#0A0F2A',
-            secondary: '#1A1E3A',
-            accent: '#00F5FF',
-            'accent-dark': '#00A3CC',
-            light: '#F5F6FA',
-            'glass-dark': 'rgba(18, 26, 45, 0.7)'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Poppins', 'sans-serif'],
-            mono: ['Roboto Mono', 'monospace']
-          },
-          animation: {
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'float': 'float 8s ease-in-out infinite',
-            'gradient': 'gradient 8s ease infinite'
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' }
-            },
-            gradient: {
-              '0%, 100%': { 'background-position': '0% 50%' },
-              '50%': { 'background-position': '100% 50%' }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags -->
+    <title>StreamVortex | The Ultimate IPTV Streaming Experience</title>
+    <meta name="description" content="Unlock 20,000+ channels and 100,000+ VOD titles in stunning 4K/8K. StreamVortex offers a premium, buffer-free IPTV service on all your devices. Start your free trial today.">
+    <meta name="keywords" content="IPTV, streaming, live TV, VOD, 4K streaming, IPTV service, online TV, sports streaming, buffer-free IPTV">
+    <meta property="og:title" content="StreamVortex | The Ultimate IPTV Streaming Experience">
+    <meta property="og:description" content="Premium, buffer-free IPTV with 20,000+ channels and 100,000+ VOD titles.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-159378499134-22591b6135c3?q=80&w=2070">
+    <meta property="og:url" content="https://streamvortex.com">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300F0FF;'/%3E%3Cstop offset='100%25' style='stop-color:%23008CFF;'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23g)' d='M50,5 C74.85,5 95,25.15 95,50 C95,74.85 74.85,95 50,95 C25.15,95 5,74.85 5,50 C5,25.15 25.15,5 50,5 Z M50,15 C30.67,15 15,30.67 15,50 C15,69.33 30.67,85 50,85 C69.33,85 85,69.33 85,50 C85,30.67 69.33,15 50,15 Z M40,35 L65,50 L40,65 Z'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS, Fonts & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 5 8 18; /* #050812 */
+                --foreground: 226 232 240; /* slate-200 */
+                --card: 255 255 255 / 0.05;
+                --card-border: 255 255 255 / 0.1;
+                --primary: 34 211 238; /* cyan-400 */
             }
-          }
+            .dark {
+                --background: 5 8 18;
+                --foreground: 226 232 240;
+                --card: 255 255 255 / 0.05;
+                --card-border: 255 255 255 / 0.1;
+            }
+            html.light {
+                --background: 241 245 249; /* slate-100 */
+                --foreground: 15 23 42; /* slate-900 */
+                --card: 255 255 255 / 0.7;
+                --card-border: 15 23 42 / 0.1;
+            }
+            body {
+                @apply font-sans antialiased;
+                background-color: rgb(var(--background));
+                color: rgb(var(--foreground));
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    body {
-      background: radial-gradient(ellipse at top, #0A0F2A 0%, #050812 100%);
-      color: #F5F6FA;
-      min-height: 100vh;
-      overflow-x: hidden;
-      font-family: 'Inter', sans-serif;
-    }
-    .hero-gradient {
-      background: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.15) 0%, transparent 70%);
-    }
-    .glass-card {
-      background: linear-gradient(135deg, rgba(18, 26, 45, 0.7) 0%, rgba(10, 15, 31, 0.5) 100%);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 245, 255, 0.2);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #00F5FF 0%, #008CFF 100%);
-      border-radius: 14px;
-      padding: 16px 36px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 25px rgba(0, 245, 255, 0.4);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      font-family: 'Roboto Mono', monospace;
-    }
-    .btn-primary:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 10px 35px rgba(0, 245, 255, 0.6);
-    }
-    .nav-link {
-      position: relative;
-      padding-bottom: 5px;
-      font-family: 'Inter', sans-serif;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #00F5FF;
-      transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    .card-hover {
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .card-hover:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    }
-    .floating {
-      animation: float 8s ease-in-out infinite;
-    }
-    .pulse {
-      animation: pulse-slow 4s infinite;
-    }
-    .sticky-whatsapp {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 100;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .sticky-whatsapp:hover {
-      transform: scale(1.15) translateY(-8px);
-      box-shadow: 0 10px 35px rgba(37, 211, 102, 0.7);
-    }
-    .section-title {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 15px;
-      font-family: 'Poppins', sans-serif;
-    }
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, #00F5FF, #008CFF);
-      border-radius: 2px;
-    }
-    .content-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      height: 300px;
-    }
-    .content-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(10, 15, 31, 0.9), transparent);
-      padding: 20px;
-      transform: translateY(30px);
-      transition: transform 0.4s ease;
-    }
-    .content-card:hover .content-overlay {
-      transform: translateY(0);
-    }
-    .match-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #e53e3e;
-      color: white;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-    .live-indicator {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      background: #e53e3e;
-      border-radius: 50%;
-      margin-right: 5px;
-      animation: pulse 1.5s infinite;
-    }
-    .animate-gradient {
-      background-size: 300% 300%;
-      background-image: linear-gradient(45deg, #00F5FF, #008CFF, #00F5FF);
-      animation: gradient 8s ease infinite;
-    }
-    .hero-heading {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height: 1.1;
-      font-family: 'Poppins', sans-serif;
-    }
-    .match-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      height: 220px;
-      background: linear-gradient(135deg, #1A1E3A, #2D3748);
-    }
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-    @media (max-width: 768px) {
-      .sticky-whatsapp {
-        width: 60px;
-        height: 60px;
-        font-size: 30px;
-      }
-      .content-card, .match-card {
-        height: 250px;
-      }
-    }
-    /* Mobile Menu */
-    .mobile-menu {
-      transition: transform 0.3s ease-in-out;
-    }
-    .mobile-menu.hidden {
-      transform: translateX(100%);
-    }
-    /* Updated Image Backgrounds */
-    .movie-bg-1 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/7233113/pexels-photo-7233113.jpeg') center/cover no-repeat; }
-    .movie-bg-2 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/7233107/pexels-photo-7233107.jpeg') center/cover no-repeat; }
-    .movie-bg-3 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/7233099/pexels-photo-7233099.jpeg') center/cover no-repeat; }
-    .movie-bg-4 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/7233101/pexels-photo-7233101.jpeg') center/cover no-repeat; }
-    .series-bg-1 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/10386225/pexels-photo-10386225.jpeg') center/cover no-repeat; }
-    .series-bg-2 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/10386226/pexels-photo-10386226.jpeg') center/cover no-repeat; }
-    .series-bg-3 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/10386227/pexels-photo-10386227.jpeg') center/cover no-repeat; }
-    .series-bg-4 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/10386228/pexels-photo-10386228.jpeg') center/cover no-repeat; }
-    .football-bg-1 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/46798/pexels-photo-46798.jpeg') center/cover no-repeat; }
-    .football-bg-2 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/314845/pexels-photo-314845.jpeg') center/cover no-repeat; }
-  </style>
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "StreamVibe",
-      "url": "https://streamvibe.com",
-      "description": "Premium IPTV service offering 20,000+ channels and 100,000+ VOD titles in 4K/8K quality.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "StreamVibe",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "/assets/logo.svg"
+        @layer components {
+            .bg-main { background-color: rgb(var(--background)); }
+            .text-main { color: rgb(var(--foreground)); }
+            .glass-card {
+                background-color: rgb(var(--card));
+                @apply backdrop-blur-xl border;
+                border-color: rgb(var(--card-border));
+            }
+            .btn {
+                @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-in-out select-none;
+            }
+            .btn-primary {
+                @apply btn bg-gradient-to-r from-cyan-400 to-blue-600 text-white shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:shadow-cyan-500/40 hover:scale-105;
+            }
+            .btn-secondary {
+                @apply btn glass-card text-main hover:border-cyan-400 hover:text-cyan-400;
+            }
+            .section-title {
+                @apply text-3xl md:text-4xl font-bold font-display text-main;
+            }
+            .nav-link {
+                @apply relative py-2 text-gray-300 transition hover:text-white after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full;
+                html.light & {
+                    @apply text-slate-600 hover:text-slate-900;
+                }
+            }
+            #cursor {
+                @apply fixed top-0 left-0 rounded-full pointer-events-none z-[1000] hidden md:block;
+                width: 32px;
+                height: 32px;
+                border: 2px solid rgb(var(--primary));
+                transition: transform 0.2s ease-out;
+            }
+            #cursor-dot {
+                 @apply fixed top-0 left-0 rounded-full pointer-events-none z-[1000] hidden md:block;
+                width: 6px;
+                height: 6px;
+                background-color: rgb(var(--primary));
+            }
+            .aurora-bg {
+                @apply absolute top-0 left-0 w-full h-full overflow-hidden -z-10;
+            }
+            .aurora-bg > div {
+                 @apply absolute rounded-full opacity-20 dark:opacity-30 filter blur-3xl animate-pulse;
+            }
         }
-      }
-    }
-  </script>
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        "main-bg": "rgb(var(--background))",
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="font-sans">
-  <!-- Sticky WhatsApp Button -->
-  <a href="https://wa.me/+1234567890?text=Hi%20StreamVibe!%20I%27m%20interested%20in%20your%20IPTV%20service" 
-     class="sticky-whatsapp" 
-     target="_blank"
-     aria-label="Contact us on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
 
-  <!-- Navigation -->
-  <nav class="py-6 px-4 md:px-12 flex justify-between items-center sticky top-0 z-50 bg-primary bg-opacity-95 backdrop-blur-md border-b border-gray-800">
-    <div class="flex items-center">
-      <div class="flex items-center">
-        <img src="/assets/logo.svg" alt="StreamVibe Logo" class="h-12 mr-3 glow">
-        <span class="text-2xl font-bold bg-gradient-to-r from-accent to-white bg-clip-text text-transparent tracking-tight font-display">StreamVibe</span>
-      </div>
-    </div>
-    <div class="hidden lg:flex space-x-10">
-      <a href="/index.html" class="nav-link text-light font-medium">Home</a>
-      <a href="/plans.html" class="nav-link text-light font-medium">Plans</a>
-      <a href="/free-trial.html" class="nav-link text-light font-medium">Free Trial</a>
-      <a href="/faq.html" class="nav-link text-light font-medium">FAQ</a>
-      <a href="/blog.html" class="nav-link text-light font-medium">Blog</a>
-      <a href="/contact.html" class="nav-link text-light font-medium">Contact</a>
-      <a href="/about.html" class="nav-link text-light font-medium">About</a>
-    </div>
-    <div class="hidden md:flex items-center space-x-6">
-      <a href="/free-trial.html" class="text-accent font-medium hover:text-white transition flex items-center">
-        <i class="fas fa-play-circle mr-2"></i>
-        <span>Free Trial</span>
-      </a>
-      <a href="/plans.html" class="btn-primary flex items-center">
-        <span>Get Started</span>
-        <i class="fas fa-arrow-right ml-3"></i>
-      </a>
-    </div>
-    <button id="mobile-menu-btn" class="md:hidden text-light text-2xl">
-      <i class="fas fa-bars"></i>
-    </button>
-  </nav>
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="mobile-menu hidden fixed top-0 right-0 w-3/4 h-full bg-secondary z-50 p-6 md:hidden">
-    <button id="close-menu-btn" class="text-light text-2xl mb-6">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="flex flex-col space-y-6">
-      <a href="/index.html" class="text-light font-medium">Home</a>
-      <a href="/plans.html" class="text-light font-medium">Plans</a>
-      <a href="/free-trial.html" class="text-light font-medium">Free Trial</a>
-      <a href="/faq.html" class="text-light font-medium">FAQ</a>
-      <a href="/blog.html" class="text-light font-medium">Blog</a>
-      <a href="/contact.html" class="text-light font-medium">Contact</a>
-      <a href="/about.html" class="text-light font-medium">About</a>
-      <a href="/free-trial.html" class="btn-primary flex items-center justify-center">
-        <span>Start Free Trial</span>
-        <i class="fas fa-play-circle ml-3"></i>
-      </a>
-    </div>
-  </div>
+<body class="bg-main text-main overflow-x-hidden">
 
-  <!-- Hero Section -->
-  <section class="pt-24 pb-32 px-4 md:px-12 hero-gradient overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative">
-      <div class="text-center lg:text-left z-10">
-        <div class="inline-block mb-6 px-4 py-2 bg-secondary rounded-full border border-gray-700">
-          <span class="text-accent font-bold">#1 IPTV SERVICE 2025</span>
-        </div>
-        <h1 class="hero-heading font-display font-extrabold mb-6 leading-tight">
-          <span class="bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">Premium Streaming</span>
-          <br>Experience Redefined
-        </h1>
-        <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto lg:mx-0">
-          Stream over 20,000 live channels, 100,000+ movies & series in stunning 4K/8K quality. Experience the future of television with StreamVibe.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
-          <a href="/plans.html" class="btn-primary inline-flex items-center justify-center">
-            <span>Get Started Now</span>
-            <i class="fas fa-arrow-right ml-3"></i>
-          </a>
-          <a href="/free-trial.html" class="glass-card px-8 py-4 rounded-xl font-medium inline-flex items-center justify-center transition hover:border-accent">
-            <i class="fas fa-play-circle mr-3 text-accent text-xl"></i>
-            <span>Start Free Trial</span>
-          </a>
-        </div>
-        <div class="mt-12 flex flex-wrap justify-center lg:justify-start gap-6">
-          <div class="flex items-center">
-            <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-              <i class="fas fa-check text-accent"></i>
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+    
+    <!-- ====== Header Start ====== -->
+    <header id="header" class="fixed top-0 left-0 z-50 w-full transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2" aria-label="StreamVortex Homepage">
+                <svg class="w-10 h-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00F0FF;"></stop><stop offset="100%" style="stop-color:#008CFF;"></stop></linearGradient></defs><path fill="url(#logo-gradient)" d="M50,5 C74.85,5 95,25.15 95,50 C95,74.85 74.85,95 50,95 C25.15,95 5,74.85 5,50 C5,25.15 25.15,5 50,5 Z M50,15 C30.67,15 15,30.67 15,50 C15,69.33 30.67,85 50,85 C69.33,85 85,69.33 85,50 C85,30.67 69.33,15 50,15 Z M40,35 L65,50 L40,65 Z"></path></svg>
+                <span class="text-2xl font-display font-bold text-main">StreamVortex</span>
+            </a>
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#content" class="nav-link">Content</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+            </nav>
+            <div class="hidden lg:flex items-center gap-4">
+                <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full glass-card text-main hover:border-cyan-400" aria-label="Toggle theme">
+                    <i class="fa-solid fa-sun" id="theme-icon-light"></i>
+                    <i class="fa-solid fa-moon hidden" id="theme-icon-dark"></i>
+                </button>
+                <a href="free-trial.html" class="btn-primary">Start Free Trial</a>
             </div>
-            <span>No Buffering</span>
-          </div>
-          <div class="flex items-center">
-            <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-              <i class="fas fa-check text-accent"></i>
-            </div>
-            <span>24/7 Support</span>
-          </div>
-          <div class="flex items-center">
-            <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-              <i class="fas fa-check text-accent"></i>
-            </div>
-            <span>99.9% Uptime</span>
-          </div>
+            <button id="menu-toggle" class="lg:hidden text-main" aria-label="Open menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
         </div>
-      </div>
-      <div class="relative z-10">
-        <div class="glass-card p-8 rounded-2xl">
-          <div class="aspect-video rounded-xl overflow-hidden relative football-bg-1">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center p-6">
-                <div class="floating mb-6">
-                  <i class="fas fa-play-circle text-accent text-7xl glow"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-light mb-2">StreamVibe IPTV Experience</h3>
-                <p class="text-gray-300">4K/8K Ultra HD Quality • 20,000+ Channels</p>
-              </div>
-            </div>
-          </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-main/90 backdrop-blur-lg">
+            <nav class="flex flex-col items-center gap-6 p-8">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#content" class="nav-link">Content</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="free-trial.html" class="btn-primary w-full text-center mt-4">Start Free Trial</a>
+            </nav>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
+    <!-- ====== Header End ====== -->
 
-  <!-- Device Compatibility -->
-  <section class="py-16 bg-[#1A1E3A]">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="section-title text-3xl md:text-4xl font-display font-bold mb-12">Watch Anywhere, Anytime</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="flex flex-col items-center card-hover">
-          <img src="https://images.pexels.com/photos/601170/pexels-photo-601170.jpeg" alt="Android" loading="lazy" class="h-16 mb-4 rounded-lg">
-          <p>Android</p>
-        </div>
-        <div class="flex flex-col items-center card-hover">
-          <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg" alt="iOS" loading="lazy" class="h-16 mb-4 rounded-lg">
-          <p>iOS</p>
-        </div>
-        <div class="flex flex-col items-center card-hover">
-          <img src="https://images.pexels.com/photos/3944454/pexels-photo-3944454.jpeg" alt="Smart TV" loading="lazy" class="h-16 mb-4 rounded-lg">
-          <p>Smart TV</p>
-        </div>
-        <div class="flex flex-col items-center card-hover">
-          <img src="https://images.pexels.com/photos/5636663/pexels-photo-5636663.jpeg" alt="Firestick" loading="lazy" class="h-16 mb-4 rounded-lg">
-          <p>Firestick</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <main>
 
-  <!-- New Movies Section -->
-  <section id="movies" class="py-20 px-4 md:px-12">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="section-title text-3xl md:text-4xl font-display font-bold mb-4">New Movies</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Latest blockbuster movies added this week</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="card-hover">
-          <div class="content-card glass-card">
-            <div class="absolute inset-0 movie-bg-1"></div>
-            <div class="content-overlay">
-              <h3 class="text-xl font-bold mb-2">Cyber Odyssey</h3>
-              <div class="flex items-center mb-2">
-                <span class="text-amber-400 mr-2">
-                  <i class="fas fa-star"></i> 8.7
-                </span>
-                <span>• Action • Sci-Fi</span>
-              </div>
-              <a href="/free-trial.html" class="text-accent font-medium flex items-center">
-                <i class="fas fa-play-circle mr-2"></i>
-                Watch Now
-              </a>
+        <!-- ====== Hero Section Start ====== -->
+        <section class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+            <div class="aurora-bg">
+                <div class="top-1/4 left-1/4 w-96 h-96 bg-cyan-500"></div>
+                <div class="bottom-1/4 right-1/4 w-80 h-80 bg-blue-600 [animation-delay:2s]"></div>
             </div>
-          </div>
-        </div>
-        <div class="card-hover">
-          <div class="content-card glass-card">
-            <div class="absolute inset-0 movie-bg-2"></div>
-            <div class="content-overlay">
-              <h3 class="text-xl font-bold mb-2">Midnight Heist</h3>
-              <div class="flex items-center mb-2">
-                <span class="text-amber-400 mr-2">
-                  <i class="fas fa-star"></i> 7.9
-                </span>
-                <span>• Crime • Thriller</span>
-              </div>
-              <a href="/free-trial.html" class="text-accent font-medium flex items-center">
-                <i class="fas fa-play-circle mr-2"></i>
-                Watch Now
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-hover">
-          <div class="content-card glass-card">
-            <div class="absolute inset-0 movie-bg-3"></div>
-            <div class="content-overlay">
-              <h3 class="text-xl font-bold mb-2">Arctic Rescue</h3>
-              <div class="flex items-center mb-2">
-                <span class="text-amber-400 mr-2">
-                  <i class="fas fa-star"></i> 8.2
-                </span>
-                <span>• Adventure • Drama</span>
-              </div>
-              <a href="/free-trial.html" class="text-accent font-medium flex items-center">
-                <i class="fas fa-play-circle mr-2"></i>
-                Watch Now
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-hover">
-          <div class="content-card glass-card">
-            <div class="absolute inset-0 movie-bg-4"></div>
-            <div class="content-overlay">
-              <h3 class="text-xl font-bold mb-2">Eternal Love</h3>
-              <div class="flex items-center mb-2">
-                <span class="text-amber-400 mr-2">
-                  <i class="fas fa-star"></i> 9.1
-                </span>
-                <span>• Romance • Drama</span>
-              </div>
-              <a href="/free-trial.html" class="text-accent font-medium flex items-center">
-                <i class="fas fa-play-circle mr-2"></i>
-                Watch Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <a href="/blog.html" class="btn-primary inline-flex items-center justify-center">
-          <span>Browse All Movies</span>
-          <i class="fas fa-arrow-right ml-3"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Popular Series Section -->
-  <section id="series" class="py-20 px-4 md:px-12 bg-gradient-to-b from-secondary to-primary">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="section-title text-3xl md:text-4xl font-display font-bold mb-4">Popular Series</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Binge-worthy shows everyone is talking about</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="card-hover">
-          <div class="content-card glass-card">
-            <div class="absolute inset-0 series-bg-1"></div>
-            <div class="content-overlay">
-              <h3 class="text-xl font-bold mb-2">Quantum Realm</h3>
-              <div class="flex items-center mb-2">
-                <span class="text-amber-400 mr-2">
-                  <i class="fas fa-star"></i> 9.2
-                </span>
-                <span>• Sci-Fi • Drama</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span>Season 3 • 12 Episodes</span>
-                <a href="/free-trial.html" class="text-accent"><i class="fas fa-play"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-hover">
-          <div class="content-card glass-card">
-            <div class="absolute inset-0 series-bg-2"></div>
-            <div class="content-overlay">
-              <h3 class="text-xl font-bold mb-2">Crimson Crown</h3>
-              <div class="flex items-center mb-2">
-                <span class="text-amber-400 mr-2">
-                  <i class="fas fa-star"></i> 8.9
-                </span>
-                <span>• Fantasy • Adventure</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span>Season 2 • 10 Episodes</span>
-                <a href="/free-trial.html" class="text-accent"><i class="fas fa-play"></i></a>
-              </div>
-            </div>
-          </ Installed
-        </div>
-        <div class="card-hover">
-          <div class="content-card glass-card">
-            <div class="absolute inset-0 series-bg-3"></div>
-            <div class="content-overlay">
-              <h3 class="text-xl font-bold mb-2">Urban Legends</h3>
-              <div class="flex items-center mb-2">
-                <span class="text-amber-400 mr-2">
-                  <i class="fas fa-star"></i> 8.5
-                </span>
-                <span>• Horror • Mystery</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span>Season 4 • 8 Episodes</span>
-                <a href="/free-trial.html" class="text-accent"><i class="fas fa-play"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-hover">
-          <div class="content-card glass-card">
-            <div class="absolute inset-0 series-bg-4"></div>
-            <div class="content-overlay">
-              <h3 class="text-xl font-bold mb-2">Legal Eagles</h3>
-              <div class="flex items-center mb-2">
-                <span class="text-amber-400 mr-2">
-                  <i class="fas fa-star"></i> 9.0
-                </span>
-                <span>• Drama • Crime</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span>Season 5 • 15 Episodes</span>
-                <a href="/free-trial.html" class="text-accent"><i class="fas fa-play"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <a href="/blog.html" class="btn-primary inline-flex items-center justify-center">
-          <span>Browse All Series</span>
-          <i class="fas fa-arrow-right ml-3"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Live Football Section -->
-  <section id="football" class="py-20 px-4 md:px-12">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="section-title text-3xl md:text-4xl font-display font-bold mb-4">Live Football</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Never miss a match with our premium sports coverage</p>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="card-hover">
-          <div class="match-card glass-card relative">
-            <div class="absolute inset-0 football-bg-1 opacity-80"></div>
-            <div class="match-badge">
-              <span class="live-indicator"></span> LIVE NOW
-            </div>
-            <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-              <div class="flex justify-between items-center w-full mb-8">
-                <div class="text-center">
-                  <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span class="text-2xl font-bold text-primary">FCB</span>
-                  </div>
-                  <h3 class="text-xl font-bold">Barcelona</h3>
-                </div>
-                <div class="text-3xl font-bold mx-4">2 - 1</div>
-                <div class="text-center">
-                  <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span class="text-2xl font-bold text-primary">RMA</span>
-                  </div>
-                  <h3 class="text-xl font-bold">Real Madrid</h3>
-                </div>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-2 mb-4">
-                <div class="bg-accent h-2 rounded-full" style="width: 65%"></div>
-              </div>
-              <p class="text-gray-300 mb-6">65' Second Half</p>
-              <a href="/free-trial.html" class="btn-primary px-6 py-3">
-                <i class="fas fa-play mr-2"></i> Watch Live
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-hover">
-          <div class="match-card glass-card relative">
-            <div class="absolute inset-0 football-bg-2 opacity-80"></div>
-            <div class="match-badge">
-              <span>UPCOMING</span>
-            </div>
-            <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-              <div class="flex justify-between items-center w-full mb-8">
-                <div class="text-center">
-                  <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span class="text-2xl font-bold text-primary">MCI</span>
-                  </div>
-                  <h3 class="text-xl font-bold">Man City</h3>
-                </div>
-                <div class="text-3xl font-bold mx-4">VS</div>
-                <div class="text-center">
-                  <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span class="text-2xl font-bold text-primary">LIV</span>
-                  </div>
-                  <h3 class="text-xl font-bold">Liverpool</h3>
-                </div>
-              </div>
-              <div class="text-center mb-6">
-                <p class="text-gray-300 mb-2">Premier League • Matchday 28</p>
-                <p class="text-xl font-bold">
-                  <i class="far fa-calendar mr-2"></i> Tomorrow, 20:00 GMT
+            <div class="absolute inset-0 bg-black/70 dark:bg-black/40 z-10"></div>
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                <source src="https://cdn.pixabay.com/video/2023/10/10/184400-873159292_large.mp4" type="video/mp4">
+            </video>
+            
+            <div class="relative z-20 container mx-auto" data-anim="hero">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-tight">
+                    The Universe of Entertainment.
+                    <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">In Your Hands.</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-200">
+                    Experience the pinnacle of streaming with over 20,000 live channels and 100,000 on-demand titles. Instant setup, flawless 4K quality, and zero buffering.
                 </p>
-              </div>
-              <a href="/free-trial.html" class="btn-primary px-6 py-3">
-                <i class="far fa-bell mr-2"></i> Set Reminder
-              </a>
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="plans.html" class="btn-primary">Explore Plans</a>
+                    <button id="watch-trailer-btn" class="btn-secondary flex items-center gap-2">
+                        <i class="fa-solid fa-play"></i> Watch Trailer
+                    </button>
+                </div>
             </div>
-          </div>
+        </section>
+        <!-- ====== Hero Section End ====== -->
+
+        <!-- ====== Scrolling Marquee Start ====== -->
+        <div class="py-4 bg-white/5 border-y border-white/10 overflow-hidden" data-anim="fade-up">
+            <div class="marquee-track flex space-x-16 text-gray-400 dark:text-gray-500 font-semibold uppercase whitespace-nowrap">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-film text-cyan-400"></i> 100,000+ VOD</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-futbol text-cyan-400"></i> Live Sports in 4K</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-tv text-cyan-400"></i> 20,000+ Channels</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-cyan-400"></i> Anti-Buffering Tech</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-headset text-cyan-400"></i> 24/7 Support</span>
+                <!-- Duplicate for seamless scroll -->
+                <span class="flex items-center gap-2"><i class="fa-solid fa-film text-cyan-400"></i> 100,000+ VOD</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-futbol text-cyan-400"></i> Live Sports in 4K</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-tv text-cyan-400"></i> 20,000+ Channels</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-cyan-400"></i> Anti-Buffering Tech</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-headset text-cyan-400"></i> 24/7 Support</span>
+            </div>
         </div>
-      </div>
+        <!-- ====== Scrolling Marquee End ====== -->
+        
+        <!-- ====== How It Works Section ====== -->
+        <section class="py-16 sm:py-24">
+            <div class="container mx-auto px-6">
+                 <div class="text-center max-w-3xl mx-auto" data-anim="fade-up">
+                    <h2 class="section-title">Get Started in 3 Simple Steps</h2>
+                    <p class="mt-4 text-lg text-gray-400 dark:text-gray-400">We've made the process incredibly simple. You can be watching your favorite channels in less than 5 minutes.</p>
+                </div>
+                <div class="relative mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="absolute top-1/2 left-0 w-full h-0.5 bg-white/10 hidden md:block"></div>
+                    <div class="relative glass-card p-8 rounded-2xl" data-anim="fade-up">
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-white font-bold text-xl shadow-lg">1</div>
+                        <i class="fa-solid fa-layer-group text-4xl text-cyan-400 mt-4"></i>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">Choose Your Plan</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Select a subscription that fits your needs. All plans include all features.</p>
+                    </div>
+                    <div class="relative glass-card p-8 rounded-2xl" data-anim="fade-up" style="--delay: 0.2s">
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-white font-bold text-xl shadow-lg">2</div>
+                        <i class="fa-solid fa-download text-4xl text-cyan-400 mt-4"></i>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">Install the App</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Follow our simple guides to install your preferred IPTV app on any device.</p>
+                    </div>
+                     <div class="relative glass-card p-8 rounded-2xl" data-anim="fade-up" style="--delay: 0.4s">
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-white font-bold text-xl shadow-lg">3</div>
+                        <i class="fa-solid fa-rocket text-4xl text-cyan-400 mt-4"></i>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">Start Watching</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Enter your credentials and start enjoying thousands of channels instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Features Section Start ====== -->
+        <section id="features" class="py-16 sm:py-24 bg-white/5">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto" data-anim="fade-up">
+                    <h2 class="section-title">Everything You Expect, and More.</h2>
+                    <p class="mt-4 text-lg text-gray-400 dark:text-gray-400">We've engineered our service from the ground up to provide an unparalleled viewing experience. Say goodbye to limitations and hello to infinite entertainment.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 rounded-2xl" data-anim="fade-up">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-cyan-500/20">4K</div>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">4K & 8K Streaming</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Immerse yourself in breathtaking Ultra HD quality on thousands of channels and VOD titles.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl" data-anim="fade-up" style="--delay: 0.1s">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-cyan-500/20"><i class="fa-solid fa-wifi"></i></div>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">Anti-Buffering Tech</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Our advanced network ensures a smooth, uninterrupted stream, even during peak hours.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl" data-anim="fade-up" style="--delay: 0.2s">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-cyan-500/20"><i class="fa-solid fa-globe"></i></div>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">20,000+ Channels</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Explore a vast universe of content from sports and news to movies and international programming.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl" data-anim="fade-up" style="--delay: 0.3s">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-cyan-500/20"><i class="fa-solid fa-clapperboard"></i></div>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">100,000+ VOD Library</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Our Video-on-Demand library is updated daily with the latest movies and series.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl" data-anim="fade-up" style="--delay: 0.4s">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-cyan-500/20"><i class="fa-regular fa-calendar-check"></i></div>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">EPG & Catch-Up</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Full Electronic Program Guide and multi-day catch-up on most channels. Never miss a show again.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl" data-anim="fade-up" style="--delay: 0.5s">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-cyan-500/20"><i class="fa-solid fa-headset"></i></div>
+                        <h3 class="mt-6 text-xl font-bold font-display text-main">Expert 24/7 Support</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Our dedicated support team is available around the clock via chat and email to assist you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== Features Section End ====== -->
+        
+        <!-- ====== Content Showcase Section ====== -->
+        <section id="content" class="py-16 sm:py-24">
+            <div class="container mx-auto px-6" data-anim="fade-up">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="section-title">A Universe of Content Awaits</h2>
+                    <p class="mt-4 text-lg text-gray-400 dark:text-gray-400">From live-action sports to blockbuster movies, we've got your entertainment covered.</p>
+                </div>
+                
+                <div class="mt-12 flex flex-wrap justify-center gap-4" id="content-tabs-nav">
+                    <button class="content-tab-btn active" data-tab="sports">Live Sports</button>
+                    <button class="content-tab-btn" data-tab="movies">New Movies</button>
+                    <button class="content-tab-btn" data-tab="series">Trending Series</button>
+                </div>
+
+                <div class="mt-12">
+                    <!-- Sports Content -->
+                    <div id="tab-sports" class="content-tab-pane active">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1553775422-52d1937f3690?q=80&w=1974')"></div>
+                            <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1543351368-064883424133?q=80&w=1974')"></div>
+                            <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1579952531505-9e3c9dede2ca?q=80&w=2070')"></div>
+                            <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1949')"></div>
+                        </div>
+                    </div>
+                    <!-- Movies Content -->
+                    <div id="tab-movies" class="content-tab-pane hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925')"></div>
+                            <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070')"></div>
+                            <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1535016120720-40c646be5580?q=80&w=2070')"></div>
+                            <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070')"></div>
+                        </div>
+                    </div>
+                    <!-- Series Content -->
+                    <div id="tab-series" class="content-tab-pane hidden">
+                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                             <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1616530940355-351fabd9526b?q=80&w=1935')"></div>
+                             <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2065')"></div>
+                             <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070')"></div>
+                             <div class="content-card" style="background-image: url('https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1974')"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Pricing Section Start ====== -->
+        <section id="pricing" class="py-16 sm:py-24 bg-white/5">
+             <div class="container mx-auto px-6" data-anim="fade-up">
+                 <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="section-title">Simple, Transparent Pricing</h2>
+                    <p class="mt-4 text-lg text-gray-400 dark:text-gray-400">Choose a plan that works for you. All plans come with our full feature set and 24/7 support.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <!-- Pricing Plan 1 -->
+                    <div class="glass-card p-8 rounded-2xl h-full" data-anim="fade-up">
+                        <h3 class="text-xl font-bold text-main">3 Months</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Perfect for getting started.</p>
+                        <p class="mt-6 text-4xl font-bold text-main">€39<span class="text-lg font-medium text-gray-400 dark:text-gray-400">.99</span></p>
+                        <a href="plans.html" class="mt-6 btn-secondary block text-center">Get Started</a>
+                        <ul class="mt-8 space-y-4 text-gray-400 dark:text-gray-400">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> All 20,000+ Channels</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> All 100,000+ VOD</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> 1 Device Connection</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> 24/7 Support</li>
+                        </ul>
+                    </div>
+                    <!-- Pricing Plan 2 (Most Popular) -->
+                    <div class="relative glass-card p-8 rounded-2xl border-2 border-cyan-400 shadow-2xl shadow-cyan-500/20 h-full" data-anim="fade-up" style="--delay: 0.2s">
+                        <div class="absolute -top-4 right-8 bg-cyan-400 text-black font-semibold px-4 py-1 rounded-full text-sm">Most Popular</div>
+                        <h3 class="text-xl font-bold text-main">12 Months</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">Best value for long-term savings.</p>
+                        <p class="mt-6 text-5xl font-bold text-main">€89<span class="text-lg font-medium text-gray-400 dark:text-gray-400">.99</span></p>
+                        <a href="plans.html" class="mt-6 btn-primary block text-center">Get Started</a>
+                        <ul class="mt-8 space-y-4 text-gray-400 dark:text-gray-400">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> All 20,000+ Channels</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> All 100,000+ VOD</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> 2 Device Connections</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> 24/7 Support</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> Early Access to New Features</li>
+                        </ul>
+                    </div>
+                     <!-- Pricing Plan 3 -->
+                    <div class="glass-card p-8 rounded-2xl h-full" data-anim="fade-up" style="--delay: 0.4s">
+                        <h3 class="text-xl font-bold text-main">6 Months</h3>
+                        <p class="mt-2 text-gray-400 dark:text-gray-400">A great balance of value.</p>
+                        <p class="mt-6 text-4xl font-bold text-main">€59<span class="text-lg font-medium text-gray-400 dark:text-gray-400">.99</span></p>
+                        <a href="plans.html" class="mt-6 btn-secondary block text-center">Get Started</a>
+                        <ul class="mt-8 space-y-4 text-gray-400 dark:text-gray-400">
+                             <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> All 20,000+ Channels</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> All 100,000+ VOD</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> 1 Device Connection</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyan-400"></i> 24/7 Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== Pricing Section End ====== -->
+
+        <!-- ====== CTA Section Start ====== -->
+        <section class="py-20 sm:py-32">
+            <div class="container mx-auto px-6 text-center" data-anim="fade-up">
+                <div class="relative max-w-4xl mx-auto glass-card rounded-2xl p-8 md:p-16 overflow-hidden">
+                    <div class="aurora-bg">
+                        <div class="-top-1/4 -left-1/4 w-96 h-96 bg-cyan-500"></div>
+                        <div class="-bottom-1/4 -right-1/4 w-96 h-96 bg-blue-600 [animation-delay:2s]"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h2 class="section-title">Ready to Elevate Your Entertainment?</h2>
+                        <p class="mt-4 text-lg text-gray-300">Join thousands of satisfied viewers enjoying the future of television today. Get instant access with our 24-hour free trial and see the StreamVortex difference for yourself.</p>
+                        <div class="mt-8">
+                            <a href="free-trial.html" class="btn-primary text-lg px-8 py-4">Start My Free Trial Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== CTA Section End ====== -->
+    </main>
+
+    <!-- ====== Footer Start ====== -->
+    <footer class="bg-white/5 border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-1">
+                     <a href="index.html" class="flex items-center gap-2 mb-4" aria-label="StreamVortex Homepage">
+                        <svg class="w-10 h-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="url(#logo-gradient)" d="M50,5 C74.85,5 95,25.15 95,50 C95,74.85 74.85,95 50,95 C25.15,95 5,74.85 5,50 C5,25.15 25.15,5 50,5 Z M50,15 C30.67,15 15,30.67 15,50 C15,69.33 30.67,85 50,85 C69.33,85 85,69.33 85,50 C85,30.67 69.33,15 50,15 Z M40,35 L65,50 L40,65 Z"></path></svg>
+                        <span class="text-2xl font-display font-bold text-main">StreamVortex</span>
+                    </a>
+                    <p class="text-gray-400 dark:text-gray-400">Our mission is to deliver the most stable and high-quality streaming experience, backed by expert support.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-main">Company</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="about.html" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">About Us</a></li>
+                        <li><a href="blog.html" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">Blog</a></li>
+                        <li><a href="#features" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">Features</a></li>
+                        <li><a href="plans.html" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-main">Support</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">Setup Guides</a></li>
+                        <li><a href="#" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">Server Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-main">Legal</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 dark:text-gray-400 hover:text-cyan-400 transition">DMCA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-center text-gray-500">
+                <p>© <span id="year"></span> StreamVortex. All Rights Reserved. This service is for educational purposes only.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ====== Footer End ====== -->
+    
+    <!-- ====== Floating WhatsApp Button ====== -->
+    <a href="https://wa.me/1234567890?text=Hi%20StreamVortex,%20I'm%20interested%20in%20a%20free%20trial." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" 
+       aria-label="Contact us on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+    
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 hidden">
+        <div class="relative w-full max-w-4xl bg-black rounded-lg shadow-lg">
+            <button id="close-modal-btn" class="absolute -top-3 -right-3 w-10 h-10 bg-white text-black rounded-full text-xl">×</button>
+            <div class="aspect-video">
+                <iframe id="youtube-player" width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- How It Works -->
-  <section class="py-16 bg-[#1A1E3A]">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="section-title text-3xl md:text-4xl font-display font-bold mb-4">How It Works</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Get started with StreamVibe in three simple steps</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center card-hover">
-          <div class="w-16 h-16 bg-accent text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
-          <h3 class="text-xl font-display font-semibold mb-2">Choose Your Plan</h3>
-          <p class="text-gray-300">Select a plan tailored to your country, duration, and device.</p>
-        </div>
-        <div class="text-center card-hover">
-          <div class="w-16 h-16 bg-accent text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
-          <h3 class="text-xl font-display font-semibold mb-2">Set Up Instantly</h3>
-          <p class="text-gray-300">Follow our easy guide to start streaming in minutes.</p>
-        </div>
-        <div class="text-center card-hover">
-          <div class="w-16 h-16 bg-accent text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
-          <h3 class="text-xl font-display font-semibold mb-2">Enjoy Streaming</h3>
-          <p class="text-gray-300">Watch your favorite content on any device, anywhere.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Testimonials Carousel -->
-  <section class="py-20 px-4 md:px-12 bg-gradient-to-b from-primary to-secondary">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="section-title text-3xl md:text-4xl font-display font-bold mb-4">What Our Users Say</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Hear from our happy customers around the world</p>
-      </div>
-      <div class="relative overflow-hidden">
-        <div class="flex animate-carousel">
-          <div class="min-w-full md:min-w-[33.33%] p-6 bg-glass-dark rounded-lg shadow-md text-center mx-4 card-hover">
-            <p class="text-gray-300 italic">"StreamVibe transformed my TV experience. The channel selection is insane!"</p>
-            <p class="mt-4 font-display font-semibold">— Sarah M., UK</p>
-          </div>
-          <div class="min-w-full md:min-w-[33.33%] p-6 bg-glass-dark rounded-lg shadow-md text-center mx-4 card-hover">
-            <p class="text-gray-300 italic">"Setup was a breeze, and the support team is super responsive."</p>
-            <p class="mt-4 font-display font-semibold">— James T., Germany</p>
-          </div>
-          <div class="min-w-full md:min-w-[33.33%] p-6 bg-glass-dark rounded-lg shadow-md text-center mx-4 card-hover">
-            <p class="text-gray-300 italic">"Best IPTV service I’ve tried. No buffering, great quality!"</p>
-            <p class="mt-4 font-display font-semibold">— Maria L., France</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- Theme Toggle ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIconLight = document.getElementById('theme-icon-light');
+        const themeIconDark = document.getElementById('theme-icon-dark');
 
-  <!-- FAQ Preview -->
-  <section class="py-16 bg-[#1A1E3A]">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="section-title text-3xl md:text-4xl font-display font-bold mb-4">Frequently Asked Questions</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Get answers to your questions about StreamVibe</p>
-      </div>
-      <div class="space-y-4 max-w-2xl mx-auto">
-        <div class="glass-card p-4 rounded-lg">
-          <h3 class="text-xl font-display font-semibold">Is StreamVibe easy to set up?</h3>
-          <p class="text-gray-300">Yes! Our step-by-step guide ensures you’re streaming in minutes on any device.</p>
-        </div>
-        <div class="glass-card p-4 rounded-lg">
-          <h3 class="text-xl font-display font-semibold">What devices are supported?</h3>
-          <p class="text-gray-300">StreamVibe works on Android, iOS, Smart TVs, Firestick, and more.</p>
-        </div>
-      </div>
-      <div class="text-center mt-8">
-        <a href="/faq.html" class="text-accent hover:underline font-medium">See All FAQs</a>
-      </div>
-    </div>
-  </section>
+        if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.add('light');
+            themeIconLight.classList.add('hidden');
+            themeIconDark.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
 
-  <!-- Final CTA -->
-  <section class="py-28 px-4 md:px-12 relative overflow-hidden">
-    <div class="absolute inset-0">
-      <div class="absolute -top-1/4 left-1/4 w-96 h-96 bg-accent rounded-full opacity-10 filter blur-[150px]"></div>
-      <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500 rounded-full opacity-10 filter blur-[150px]"></div>
-    </div>
-    <div class="max-w-5xl mx-auto text-center relative z-10">
-      <h2 class="text-4xl md:text-5xl font-display font-bold mb-8">
-        Ready to Transform Your <span class="bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">Streaming Experience?</span>
-      </h2>
-      <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-        Join thousands of satisfied users enjoying premium IPTV service with unmatched quality and reliability.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-5 justify-center">
-        <a href="/plans.html" class="btn-primary inline-flex items-center justify-center animate-gradient">
-          <span>Get Started Now</span>
-          <i class="fas fa-arrow-right ml-3"></i>
-        </a>
-        <a href="/free-trial.html" class="glass-card px-8 py-4 rounded-xl font-medium inline-flex items-center justify-center transition hover:border-accent">
-          <i class="fas fa-play-circle mr-3 text-accent text-xl"></i>
-          <span>Start Free Trial</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="pt-20 pb-12 px-4 md:px-12 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-        <div>
-          <div class="flex items-center mb-6">
-            <img src="/assets/logo.svg" alt="StreamVibe Logo" class="h-12 mr-3 glow">
-            <span class="text-2xl font-bold bg-gradient-to-r from-accent to-white bg-clip-text text-transparent tracking-tight font-display">StreamVibe</span>
-          </div>
-          <p class="text-gray-400 mb-6">Premium IPTV service delivering unparalleled streaming quality and channel selection since 2023.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center hover:bg-accent transition glass-card">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center hover:bg-accent transition glass-card">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center hover:bg-accent transition glass-card">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center hover:bg-accent transition glass-card">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold mb-6 font-display">Quick Links</h4>
-          <ul class="space-y-4">
-            <li><a href="/index.html" class="text-gray-400 hover:text-accent transition">Home</a></li>
-            <li><a href="/plans.html" class="text-gray-400 hover:text-accent transition">Plans</a></li>
-            <li><a href="/free-trial.html" class="text-gray-400 hover:text-accent transition">Free Trial</a></li>
-            <li><a href="/faq.html" class="text-gray-400 hover:text-accent transition">FAQ</a></li>
-            <li><a href="/blog.html" class="text-gray-400 hover:text-accent transition">Blog</a></li>
-            <li><a href="/contact.html" class="text-gray-400 hover:text-accent transition">Contact</a></li>
-            <li><a href="/about.html" class="text-gray-400 hover:text-accent transition">About</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold mb-6 font-display">Legal</h4>
-          <ul class="space-y-4">
-            <li><a href="#" class="text-gray-400 hover:text-accent transition">Terms of Service</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-accent transition">Privacy Policy</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-accent transition">Refund Policy</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-accent transition">Copyright Notice</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold mb-6 font-display">Contact Us</h4>
-          <ul class="space-y-4">
-            <li class="flex items-start">
-              <i class="fas fa-envelope text-accent mt-1.5 mr-3"></i>
-              <span>support@streamvibe.com</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fab fa-whatsapp text-accent mt-1.5 mr-3"></i>
-              <span>+1 (555) 123-4567</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-comments text-accent mt-1.5 mr-3"></i>
-              <span>24/7 Live Chat Support</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-16 pt-8 text-center text-gray-500">
-        <p>© 2025 StreamVibe. All rights reserved. StreamVibe is an independent service and is not affiliated with any broadcast companies.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // GSAP Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero animation
-    gsap.from('.hero-heading', {
-      duration: 1.2,
-      opacity: 0,
-      y: 40,
-      ease: 'power3.out'
-    });
-
-    // Hero buttons
-    gsap.from('.btn-primary, .glass-card', {
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      stagger: 0.2,
-      delay: 0.3,
-      ease: 'power2.out'
-    });
-
-    // Card hover animations
-    gsap.utils.toArray('.card-hover').forEach(element => {
-      gsap.from(element, {
-        scrollTrigger: {
-          trigger: element,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'power2.out'
-      });
-    });
-
-    // Content card hover animations
-    document.querySelectorAll('.content-card').forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        gsap.to(card.querySelector('.content-overlay'), {
-          y: 0,
-          duration: 0.4,
-          ease: 'power2.out'
+        themeToggle.addEventListener('click', () => {
+            const isLight = document.documentElement.classList.toggle('light');
+            document.documentElement.classList.toggle('dark', !isLight);
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            themeIconLight.classList.toggle('hidden');
+            themeIconDark.classList.toggle('hidden');
         });
-      });
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card.querySelector('.content-overlay'), {
-          y: 30,
-          duration: 0.4,
-          ease: 'power2.out'
+
+        // --- Custom Cursor ---
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        window.addEventListener('mousemove', e => {
+            gsap.to(cursor, { duration: 0.2, x: e.clientX, y: e.clientY });
+            gsap.to(cursorDot, { duration: 0.05, x: e.clientX, y: e.clientY });
         });
-      });
-    });
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = 1;
+            cursorDot.style.opacity = 1;
+        });
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = 0;
+            cursorDot.style.opacity = 0;
+        });
+        document.querySelectorAll('a, button, .faq-toggle').forEach(el => {
+            el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 1.5, borderColor: 'transparent', background: 'rgba(var(--primary), 0.3)' }));
+            el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1, borderColor: 'rgb(var(--primary))', background: 'transparent' }));
+        });
 
-    // Carousel animation
-    gsap.to('.animate-carousel', {
-      xPercent: -66.66,
-      duration: 10,
-      repeat: -1,
-      ease: 'linear'
-    });
+        // --- GSAP Animations ---
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hero Animation
+        gsap.from('[data-anim="hero"] > *', { opacity: 0, y: 30, duration: 1, stagger: 0.2, ease: "power3.out", delay: 0.5 });
+        
+        // General Fade-up Animation
+        gsap.utils.toArray('[data-anim="fade-up"]').forEach(element => {
+            gsap.from(element, {
+                scrollTrigger: { trigger: element, start: "top 85%", toggleActions: "play none none none" },
+                opacity: 0, y: 50, duration: 0.8, ease: "power2.out", delay: parseFloat(element.style.getPropertyValue('--delay') || 0)
+            });
+        });
+        
+        // Marquee Animation
+        const marquee = document.querySelector('.marquee-track');
+        gsap.to(marquee, { xPercent: -50, duration: 20, repeat: -1, ease: 'linear' }).totalProgress(0.5);
+        gsap.set(marquee, { xPercent: -25 });
 
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const closeBtn = document.getElementById('close-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+        // --- Header Logic ---
+        const header = document.getElementById('header');
+        ScrollTrigger.create({
+            start: 'top -80',
+            end: 99999,
+            toggleClass: { className: 'header-scrolled', target: header }
+        });
+        const style = document.createElement('style');
+        style.innerHTML = `.header-scrolled {
+            background-color: rgba(var(--background), 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(var(--card-border));
+        }`;
+        document.head.appendChild(style);
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
 
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
+        // --- Mobile Menu Logic ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // --- Content Tabs ---
+        const tabNav = document.getElementById('content-tabs-nav');
+        const tabPanes = document.querySelectorAll('.content-tab-pane');
+        tabNav.addEventListener('click', e => {
+            if (e.target.matches('.content-tab-btn')) {
+                tabNav.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+                const tabId = e.target.dataset.tab;
+                tabPanes.forEach(pane => {
+                    pane.classList.toggle('hidden', pane.id !== `tab-${tabId}`);
+                    pane.classList.toggle('active', pane.id === `tab-${tabId}`);
+                });
+            }
+        });
+
+        // --- Video Modal ---
+        const videoModal = document.getElementById('video-modal');
+        const watchTrailerBtn = document.getElementById('watch-trailer-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const youtubePlayer = document.getElementById('youtube-player');
+        const videoSrc = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0";
+
+        watchTrailerBtn.addEventListener('click', () => {
+            youtubePlayer.src = videoSrc;
+            videoModal.classList.remove('hidden');
+        });
+        closeModalBtn.addEventListener('click', () => {
+            youtubePlayer.src = "";
+            videoModal.classList.add('hidden');
+        });
+
+        // --- Set current year in footer ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Add specific styles for content tabs
+        const tabStyle = document.createElement('style');
+        tabStyle.innerHTML = `
+            .content-tab-btn {
+                @apply px-5 py-2 rounded-full font-semibold transition;
+            }
+            .content-tab-btn.active {
+                @apply bg-cyan-400 text-black;
+            }
+             .content-tab-btn:not(.active) {
+                @apply bg-white/5 text-main;
+            }
+            .content-card {
+                 @apply h-80 rounded-2xl bg-cover bg-center transition-transform duration-500 hover:scale-105;
+            }
+        `;
+        document.head.appendChild(tabStyle);
     });
-  </script>
+    </script>
 </body>
 </html>
